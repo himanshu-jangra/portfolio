@@ -63,7 +63,7 @@ header {
 }
 
 .brand {
-    font-weight: 500; /* Medium Weight */
+    font-weight: 400; /* Medium Weight */
     font-stretch: condensed;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
@@ -167,7 +167,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 500; /* Medium Weight */
+    font-weight: 400; /* Medium Weight */
     font-stretch: condensed;
     font-size: 0.95rem;
     
@@ -193,7 +193,7 @@ footer {
     margin-top: 20px;
     text-align: center;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--text-color);
 }
 
