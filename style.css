@@ -1,0 +1,245 @@
+/* --- VARIABLES --- */
+:root {
+    --bg-color: #EBEBEB;
+    --text-color: #181818;
+    --border-width: 2px;
+    --radius-l: 24px;
+    --radius-s: 14px;
+    --shadow-distance: 8px; 
+    --shadow-btn: 4px; /* Standard button shadow depth */
+    
+    /* Fonts */
+    --font-main: 'Mona Sans', Impact, sans-serif;
+    --font-sig: 'Gurmukhi MN', 'Noto Sans Gurmukhi', sans-serif;
+}
+
+/* --- RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- UTILITY ICONS --- */
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 18px 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 500; /* Medium Weight */
+    font-stretch: condensed;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--bg-color);
+    border-radius: 2px;
+}
+
+/* --- HERO CARD --- */
+.hero-card {
+    background-color: var(--bg-color);
+    border: var(--border-width) solid var(--text-color);
+    border-radius: var(--radius-l);
+    padding: 80px 20px;
+    text-align: center;
+    /* Hard Drop Shadow */
+    box-shadow: var(--shadow-distance) var(--shadow-distance) 0px var(--text-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+.hero-content h1 {
+    /* Reduced size on desktop as requested */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    font-stretch: condensed;
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.barriers {
+    font-size: 0.7em; 
+    letter-spacing: -5px; 
+}
+
+.cta-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s ease;
+}
+
+.cta-wrapper:hover {
+    opacity: 0.7;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-stretch: condensed;
+}
+
+.cursor-icon {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-10deg) translateY(5px);
+}
+
+/* --- SOCIAL GRID --- */
+.social-grid {
+    display: grid;
+    /* Responsive columns logic: */
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-btn {
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    border-radius: var(--radius-s);
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500; /* Medium Weight */
+    font-stretch: condensed;
+    font-size: 0.95rem;
+    
+    /* Default state: Floating with hard shadow */
+    box-shadow: var(--shadow-btn) var(--shadow-btn) 0px var(--text-color);
+    transform: translate(0, 0);
+    
+    /* Smooth Snap Animation */
+    transition: transform 0.2s ease, box-shadow 0.1s ease;
+}
+
+/* Hover/Active Interaction: Press In */
+.social-btn:hover {
+    /* Move button down and right by the exact size of the shadow */
+    transform: translate(var(--shadow-btn), var(--shadow-btn));
+    
+    /* Remove shadow to create the "flush" pressed look */
+    box-shadow: 0px 0px 0px var(--text-color);
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.punjabi-text {
+    font-family: var(--font-sig);
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (Under 1024px) */
+@media (max-width: 1024px) {
+    .social-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    }
+}
+
+/* Mobile (Under 600px) */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px;
+    }
+    
+    header {
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-card {
+        padding: 50px 15px;
+        box-shadow: 5px 5px 0px var(--text-color); /* Smaller shadow on mobile */
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+    }
+    
+    .hero-content h1 {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Small Mobile (Under 380px) */
+@media (max-width: 380px) {
+    .social-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+    }
+}
